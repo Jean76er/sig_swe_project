@@ -16,7 +16,8 @@ def hello():
         artist_names = info[1],
         album_image = info[2],
         song_preview = info[3],
-        spotify_link = info[4]
+        spotify_link = info[4],
+        total_artists = len(info[1])
     )
 
 

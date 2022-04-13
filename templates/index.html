@@ -1,14 +1,41 @@
+<!DOCTYPE html> 
+<html>
+
+<title>Page Title</title>
 
 <head>
     <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
 </head>
 
-<h2>{{song_name}}</h2>
+<body>
+    <div>
+    <h2>{{song_name}}</h2>
+    <h2>
+        {% for i in range(total_artists) %}
+            {% if i == total_artists-1 %}
+                {{ artist_names[i] }}
+            {% else %}
+                {{ artist_names[i] }} |
+            {% endif %}
+        {% endfor %}
+    </h2>
+    </div>
 
-<h2>{{artist_names}}</h2>
-
-<h2>{{album_image}}</h2>
+<img src={{album_image}}></img>
 
 <h2>{{song_preview}}</h2>
+{% if song_preview == None %}
+    <h2>No Song Preview</h2>
+{% else %}
+    <audio controls>
+        <source src={{song_preview}} type="audio/mpeg">
+    </audio>
+{% endif %}
 
-<h2>{{spotify_link}}</h2>
+
+<br>
+<h2><a href = "{{spotify_link}}">Link to Song!</h2>
+
+</body>
+
+</html>

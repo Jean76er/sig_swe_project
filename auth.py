@@ -17,18 +17,12 @@ def get_auth():
         'client_secret': CLIENT_SECRET,
     })
 
-    print(auth_response)
-
     auth_response_data = auth_response.json()
-    print(auth_response_data)
-
-
     token = auth_response_data['access_token']
-
-    print(token)
     return token
 
 
 if __name__ == '__main__':
     token = get_auth()
     print(token)
+   
