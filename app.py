@@ -1,8 +1,26 @@
 from flask import Flask, render_template
 app = Flask(__name__)
+from data import get_data
 
 @app.route('/')
 def hello():
-    return render_template('index.html', title="My Cool App", items = ["A", "B", "C"], x = 3)
+    info = get_data()
+    print(info)
+
+
+
+
+    return render_template(
+        'index.html', 
+        song_name = info[0],
+        artist_names = info[1],
+        album_image = info[2],
+        song_preview = info[3],
+        spotify_link = info[4]
+    )
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(
+        debug=True,
+    )
