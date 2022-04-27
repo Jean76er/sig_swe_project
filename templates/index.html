@@ -9,23 +9,23 @@
 
 <body>
     <div>
-    <h2>{{song_name}}</h2>
+    <h2><center>{{song_name}}</center></h2>
     <h2>
         {% for i in range(total_artists) %}
             {% if i == total_artists-1 %}
-                {{ artist_names[i] }}
+            <center>{{ artist_names[i] }}</center>
             {% else %}
-                {{ artist_names[i] }} |
+                <center>{{ artist_names[i] }} |</center>
             {% endif %}
         {% endfor %}
     </h2>
     </div>
 
-<img src={{album_image}}></img>
+<center><img src={{album_image}}></img></center>
 
-<h2>{{song_preview}}</h2>
+<h2><center>{{song_preview}}</center></h2>
 {% if song_preview == None %}
-    <h2>No Song Preview</h2>
+    <h2><center>No Song Preview</center></h2>
 {% else %}
     <audio controls>
         <source src={{song_preview}} type="audio/mpeg">
